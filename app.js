@@ -40,18 +40,22 @@ if ('development' == app.get('env')) {
 app.get('/', routes.index);
 app.get('/signup', home.signup);
 app.get('/login', home.login);
-//app.get('/logout', home.logout);
-
 
 //getting Info Pages
 app.get('/getDevInfoPage',home.getDevInfoPage);
 app.get('/getLayoutInfoPage',home.getLayoutInfoPage);
 app.get('/getMaterialInfoPage',home.getMaterialInfoPage);
 app.get('/getDTCInfoPage',home.getDTCInfoPage);
+app.get('/logout',home.logout);
 
 //post APIs
+//app.post('/addUser', user.addUser);
 app.post('/storeDevInfo',home.storeDevInfo);
 app.post('/storeLayoutInfo',home.storeLayoutInfo);
+app.post('/storeDtcInfo',home.storeDtcInfo);
+app.post('/getReportDetails',home.storeDtcInfo);
+
+app.get('/displayReport',home.displayReport);
 
 http.createServer(app).listen(app.get('port'), function(){
   console.log('Express server listening on port ' + app.get('port'));

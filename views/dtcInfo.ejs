@@ -9,7 +9,7 @@
    		<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
    		
    		<!--CUSTOM ANGULAR-->
-   		<script type="text/javascript"src="/js/layoutInfoCtrl.js"></script>
+   		<script type="text/javascript"src="/js/dtcInfoCtrl.js"></script>
    		
    		<script src="http://code.highcharts.com/highcharts.src.js"></script>
    	    <script src="https://rawgithub.com/pablojim/highcharts-ng/master/src/highcharts-ng.js"></script>
@@ -44,7 +44,7 @@
     <link rel="stylesheet" href="plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.min.css">
     
   </head>
-  <body class="hold-transition skin-blue sidebar-mini" ng-controller="layoutInfoCtrl">
+  <body class="hold-transition skin-blue sidebar-mini" ng-controller="dtcInfoCtrl">
   <div class="wrapper">
 
     <header class="main-header">
@@ -119,8 +119,6 @@
       <!-- Main content -->
       <div>
 		
-  	
-
   	<div class="hold-transition skin-blue sidebar-mini">
   	  <div>
   	    <section class="content">
@@ -145,44 +143,19 @@
       <div class="panel-heading">Number of DTC</div>
       <div class="panel-body">
      <div class="row">
-       <div class="col-lg-2 col-xs-2">
-  		  </div>
-  		  		<div class="col-lg-3 col-xs-3">
-  		  		<div class="checkbox">
-  		  		<label><input type="checkbox" id="dtc" ng-model="Option1" value="Option 1">(1*63)+(2*250)</label>
-  		  		</div>
+     <div class="col-lg-2 col-xs-2">
+	  </div>
+	  		<div class="col-lg-3 col-xs-3">
+			<label>Transformer information</label> 							
+		</div>
+  		  		<div class="col-lg-4 col-xs-4">
+  		  		
+  		  		<input class="form-control" type="text" id="dtc" name="dtc" placeholder="Transformer information" ng-model="dtc" value="">
+  		  		
   		  		</div>
      </div>
   		  	<br>
-		 
-		 <div class="row">
-       <div class="col-lg-2 col-xs-2">
-  		  </div>
-  		  		<div class="col-lg-3 col-xs-3">
-  		  		<div class="checkbox">
-  		  		<label><input type="checkbox" id="dtc" ng-model="Option2" value="Option 2">(9*63)</label>
-  		  		</div>
-  		  		</div>
-        </div>
-  		  	<br>
-			
-			<div class="row">
-       <div class="col-lg-2 col-xs-2">
-  		  </div>
-  		  		<div class="col-lg-3 col-xs-3">
-  		  		<div class="checkbox">
-  		  		<label><input type="checkbox" id="dtc" ng-model="Option3" value="Option 3">(5*100)+(1*63)</label>
-  		  		</div>
-  		  		</div>
-        </div>
-  		  	<br>
-      <div class="row">
-      <div class="col-lg-2 col-xs-2">
-		  </div>
-		  	
-  </div>
-  <br>
-
+     
 	  </div>
 </div>
     </div>
@@ -192,44 +165,23 @@
 
   	
   	<div class="row">
-
-  			<div class="col-lg-4 col-xs-4">
-  			</div>
-  			
-  			<div class="col-lg-2 col-xs-2">
-  				
-				<input type="submit" class="btn btn-primary" value="BACK" ng-click="back()" style="width:100%"></input>
-  			</div>
+  	<div class="col-lg-5 col-xs-5">
+	  </div>
 			<div class="col-lg-2 col-xs-2">
 			<input type="submit" class="btn btn-primary" value="SUBMIT" ng-click="submit()" style="width:100%"></input>
 			</div>
-  			<div class="col-lg-4 col-xs-4">
-  			</div>
+  			
   		</div>
   		</form>
   	<hr/>
-  		
-  			 
   	</section>		 
   		</div>
   	</div>
   	</div>  
-  	
-  			
-  	
-  	   
-
-  		
   		  <div>
-  		    
   		 </div>
-  									
-  	
-         	
-  		       
   		    </div>
   		        </div>
-  		      
   		    </div>
 </div>
     

@@ -44,49 +44,30 @@
 					</header>
 <section class="wrapper style5">
 							<div class="inner">
-									<h4>Sign Up</h4>
+									<h4>Sign Up</h4> 
 									<form>
 										<div class="row uniform">
 											<div class="6u 12u$(xsmall)">
-												<input type="text" name="firstname" id="firstname" value="" placeholder="First Name" ng-model="firstname"/>
+												<input type="text" name="firstname" id="firstname" value="" placeholder="First Name" ng-model="fname"/>
 											</div>
 											<div class="6u$ 12u$(xsmall)">
-												<input type="text" name="lastname" id="lastname" value="" placeholder="Last Name" ng-model="lastname" />
+												<input type="text" name="lastname" id="lastname" value="" placeholder="Last Name" ng-model="lname" />
 											</div>
 											<div class="6u 12u$(xsmall)">
-												<input type="password" name="password" id="password" value="" placeholder="Password" ng-model="password" />
+												<input type="password" name="password" id="password" value="" placeholder="Password" ng-model="pswrd" />
 											</div>
 											<div class="6u$ 12u$(xsmall)">
-												<input type="password" name="cpswd" id="cpswd" value="" placeholder="Confirm Passowrd" ng-model="cpswd"/>
-											</div>
-											<div class="6u 12u$(xsmall)">
 												<input type="email" name="email" id="email" value="" placeholder="Email" ng-model="email"/>
 											</div>
+											<div class="6u 12u$(xsmall)">
+												<input type="text" name="phone" id="phone" value="" placeholder="Phone" ng-model="userid"/>
+											</div>
 											<div class="6u$ 12u$(xsmall)">
-												<input type="text" name="phone" id="phone" value="" placeholder="Phone" ng-model="phone"/>
+												<input type="text" name="address" id="address" value="" placeholder="Address" ng-model="address"/>
 											</div>
 											<div class="6u 12u$(xsmall)">
-												<input type="text" name="address" id="address" value="" placeholder="Street Name" ng-model="address"/>
-											</div>
-											<div class="6u$ 12u$(xsmall)">
-												<input type="text" name="state" id="state" value="" placeholder="State" ng-model="state"/>
-											</div>
-											<div class="6u 12u$(xsmall)">
-												<input type="text" name="country" id="country" value="" placeholder="Country" ng-model="country"/>
-											</div>
-											<div class="6u$ 12u$(xsmall)">
-												<input type="text" name="city" id="city" value="" placeholder="City" ng-model="city"/>
-											</div>
-											<div class="12u$">
-												<div class="select-wrapper">
-													<select name="gender" id="gender" ng-model="gender">
-														<option value="">-Gender-</option>
-														<option value="male">Male</option>
-														<option value="female">Female</option>
-													</select>
-												</div>
-											</div>
-											
+												<p style="color:red">(Phone number will be used as user ID for login) </p>
+											</div>	
 											<div class="12u$">
 												<ul class="actions">
 													<li><input type="submit" value="Sign Up" class="special" ng-click="addUser()"/></li>
@@ -102,7 +83,6 @@
 											<center> <strong> Email ID already exists. Please enter a correct Email. </strong></center>
 											</div>
 
-											
 										</div>
 									</form>
 								</section>
