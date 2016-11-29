@@ -31,6 +31,10 @@ function getDTCInfoPage(req,res) {
 	res.render("dtcInfo");
 }
 
+function displayReport(req,res) {
+	res.render("reportPage");
+}
+
 function storeDevInfo(req,res) {
 	var customerName, surveyNumber, address, district, cityTown, village, section, csd;
 	customerName = req.param("customerName");
@@ -123,20 +127,73 @@ function storeLayoutInfo(req,res) {
 	
 }
 
-/*
+function storeDtcInfo(req,res){
+	var dtc;
+	
+	dtc = req.param("dtc");
+	
+	var json_responses = {};
+
+	req.session.dtc = dtc;
+	
+	console.log(req.session.customerName);
+	console.log(req.session.surveyNumber);
+	console.log(req.session.address);
+	console.log(req.session.district);
+	console.log(req.session.cityTown);
+	console.log(req.session.village);
+	console.log(req.session.section);
+	console.log(req.session.csd);
+	console.log(req.session.layout);
+	console.log(req.session.number);
+	console.log(req.session.newLayout);
+	console.log(req.session.newNumber);
+	console.log(req.session.customLayout);
+	console.log(req.session.customNumber);
+	console.log(req.session.htLength);
+	console.log(req.session.ltLength);
+	console.log(req.session.htDeadends);
+	console.log(req.session.ltDeadends);
+	console.log(req.session.dtc);
+	
+	json_responses.customerName = req.session.customerName;
+	json_responses.surveyNumber = req.session.surveyNumber;
+	json_responses.address = req.session.address;
+	json_responses.district = req.session.district;
+	json_responses.cityTown = req.session.cityTown;
+	json_responses.village = req.session.village;
+	json_responses.section = req.session.section;
+	json_responses.csd = req.session.csd;
+	json_responses.layout = req.session.layout;
+	json_responses.number = req.session.number;
+	json_responses.newLayout = req.session.newLayout;
+	json_responses.newNumber = req.session.newNumber;
+	json_responses.customLayout = req.session.customLayout;
+	json_responses.customNumber = req.session.customNumber;
+	json_responses.htLength = req.session.customerName;
+	json_responses.ltLength = req.session.customerName;
+	json_responses.htDeadends = req.session.customerName;
+	json_responses.ltDeadends = req.session.customerName;
+	json_responses.dtc = req.session.customerName;
+	json_responses.status = 200;
+	
+	res.send(json_responses);	
+}
+
 //logging out of system
 function logout(req,res) {
 	req.session.destroy();
 	res.render("index");
 }
-*/
 
-
+exports.displayReport = displayReport;
+exports.storeDtcInfo = storeDtcInfo;
 exports.getDevInfoPage = getDevInfoPage;
 exports.getLayoutInfoPage = getLayoutInfoPage;
 exports.getMaterialInfoPage = getMaterialInfoPage;
 exports.getDTCInfoPage = getDTCInfoPage;
 exports.signup= signup;
 exports.login= login;
+exports.logout = logout;
 exports.storeDevInfo = storeDevInfo;
 exports.storeLayoutInfo = storeLayoutInfo;

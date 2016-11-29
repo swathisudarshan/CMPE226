@@ -26,14 +26,30 @@ var cmpe226= angular.module('app',[]);
 	
 	
 	 $scope.submit = function() {
-		 var Option1 = $scope.Option1;
-		 var Option2 = $scope.Option2;
-		 var Option3 = $scope.Option3;
-		 
-		 console.log(Option1);
-		 console.log(Option2);
-		 console.log(Option3);
-		 console.log("*****");
+		 var dtc = $scope.dtc;
+		 $http({
+				method : "POST",
+				url : '/storeDtcInfo',
+				data : {
+					"dtc" : dtc
+				}
+			}).success(function(data) {
+				//checking the response data for statusCode
+				if (data.statusCode == 401) {
+					console.log("error in storing sessions");
+					
+				}
+				else
+					{
+					
+					console.log("data from sessions are : ");
+					console.log(JSON.stringify(data));
+					window.location.assign("/displayReport");
+					}
+				
+			}).error(function(error) {
+					console.log(error);
+			});
 		 
 	 }
 	 

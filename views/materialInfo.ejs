@@ -9,7 +9,7 @@
    		<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
    		
    		<!--CUSTOM ANGULAR-->
-   		<script type="text/javascript"src="/js/layoutInfoCtrl.js"></script>
+   		<script type="text/javascript"src="/js/materialInfoCtrl.js"></script>
    		
    		<script src="http://code.highcharts.com/highcharts.src.js"></script>
    	    <script src="https://rawgithub.com/pablojim/highcharts-ng/master/src/highcharts-ng.js"></script>
@@ -44,7 +44,7 @@
     <link rel="stylesheet" href="plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.min.css">
     
   </head>
-  <body class="hold-transition skin-blue sidebar-mini" ng-controller="layoutInfoCtrl">
+  <body class="hold-transition skin-blue sidebar-mini" ng-controller="materialInfoCtrl">
   <div class="wrapper">
 
     <header class="main-header">
@@ -81,28 +81,28 @@
 	        <!-- /.search form -->
 	        <!-- sidebar menu: : style can be found in sidebar.less -->
 	 		
-	        <li>
+	        <li class="treeview">
 	           <a href="" ng-click="getDevInfoPage()">
 	            <i class="fa fa-male" aria-hidden="true"></i>
 	            <span>Developer Info</span>
 	           </a>
 	        </li>
 	        
-	        <li>
+	        <li class="treeview">
 	           <a href="" ng-click="getLayoutInfoPage()">
 	            <i class="fa fa-male" aria-hidden="true"></i>
 	            <span>Layout Info</span>
 	           </a>
 	        </li>
 	      
-	        <li class="active">
+	        <li class="treeview">
 	           <a href="" ng-click="getMaterialInfoPage()">
 	            <i class="fa fa-male" aria-hidden="true"></i>
 	            <span>Material Info</span>
 	           </a>
 	        </li>
 	        
-	        <li>
+	        <li class="treeview">
 	           <a href="" ng-click="getDTCInfoPage()">
 	            <i class="fa fa-male" aria-hidden="true"></i>
 	            <span>DTC Info</span>
@@ -119,8 +119,6 @@
       
       <!-- Main content -->
       <div>
-		
-  	
 
   	<div class="hold-transition skin-blue sidebar-mini">
   	  <div>
@@ -186,11 +184,6 @@
 	  		  	</div>
 	  		  	</div> 	
  <br>
- 
-      
-      <div class="row">
-      <div class="col-lg-2 col-xs-2">
-		  </div>
 		  	
   </div>
   <br>
@@ -204,56 +197,12 @@
     <div class="panel panel-default">
       <div class="panel-heading">Accessories</div>
       <div class="panel-body">
-     <div class="row">
-       <div class="col-lg-2 col-xs-2">
-       <input type="checkbox" id="accessories" ng-model="log.Option 1" value="Option 1">Option 1
-  		  </div>
-  	   
-       <div class="col-lg-2 col-xs-2">
-       <input type="checkbox" id="accessories" ng-model="log.Option 2" value="Option 2">Option 2
-  		  </div>
-			
-       <div class="col-lg-2 col-xs-2">
-       <input type="checkbox" id="accessories" ng-model="log.Option 3" value="Option 3">Option 3
-  		  </div>
-       <div class="col-lg-2 col-xs-2">
-       <input type="checkbox" id="accessories" ng-model="log.Option 4" value="Option 4">Option 4
-  		  </div>
-       <div class="col-lg-2 col-xs-2">
-       <input type="checkbox" id="accessories" ng-model="log.Option 5" value="Option 5">Option 5
-  		  </div>
-       <div class="col-lg-2 col-xs-2">
-       <input type="checkbox" id="accessories" ng-model="log.Option 6" value="Option 6">Option 6
-  		  </div>
-       </div>
-		
-      <br>
       
-      <div class="row">
-      <div class="col-lg-2 col-xs-2">
-      <input type="checkbox" id="accessories" ng-model="log.Option 7" value="Option 7">Option 7
- 		  </div>
- 	   
-      <div class="col-lg-2 col-xs-2">
-      <input type="checkbox" id="accessories" ng-model="log.Option 8" value="Option 8">Option 8
- 		  </div>
-			
-      <div class="col-lg-2 col-xs-2">
-      <input type="checkbox" id="accessories" ng-model="log.Option 9" value="Option 9">Option 9
- 		  </div>
-      <div class="col-lg-2 col-xs-2">
-      <input type="checkbox" id="accessories" ng-model="log.Option 10" value="Option 10">Option 10
- 		  </div>
-      <div class="col-lg-2 col-xs-2">
-      <input type="checkbox" id="accessories" ng-model="log.Option 11" value="Option 11">Option 11
- 		  </div>
-      <div class="col-lg-2 col-xs-2">
-      <input type="checkbox" id="accessories" ng-model="log.Option 12" value="Option 12">Option 12
- 		  </div>
+      <div class="col-lg-4 col-xs-4">
+      <div ng-repeat="accs in acc"><input type="checkbox" value="{{accs.name}}" ng-checked="selection.indexOf(accs.name) > -1" ng-click="toggleSelection(accs.name)"/><label for="{{accs.name}}"></label>{{accs.name}}
       </div>
-		
-     <br>
-</div>
+       </div>
+
       
       </div>
     </div>
@@ -266,12 +215,10 @@
 
   			<div class="col-lg-4 col-xs-4">
   			</div>
-  			<div class="col-lg-2 col-xs-2">
-			<input type="submit" class="btn btn-primary" value="BACK" ng-click="back(log)" style="width:100%"></input>
-			</div>
+  			
   			<div class="col-lg-2 col-xs-2">
   				
-				<input type="submit" class="btn btn-primary" value="NEXT" ng-click="next(log)" style="width:100%"></input>
+				<input type="submit" class="btn btn-primary" value="NEXT" ng-click="next()" style="width:100%"></input>
   			</div>
 			
   			<div class="col-lg-4 col-xs-4">

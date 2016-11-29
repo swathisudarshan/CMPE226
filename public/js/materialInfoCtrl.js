@@ -1,5 +1,33 @@
 var cmpe226= angular.module('app',[]);
  cmpe226.controller('materialInfoCtrl', function($scope, $http, $location) {
+	console.log("Inside Material info controller");
+	
+	$scope.acc=[{name:'option1'},
+	                   {name:'option2'},
+	                   {name:'option3'},
+	                   {name:'option4'},
+	                   {name:'option5'},
+	                   {name:'option6'},
+	                   {name:'option7'},
+	                   {name:'option8'},
+	                   {name:'option9'},
+	                   {name:'option10'}];
+	              $scope.selection=[];
+	              // toggle selection for a given employee by name
+	              $scope.toggleSelection = function toggleSelection(accs) {
+	                 var idx = $scope.selection.indexOf(accs);
+	             
+	                 // is currently selected
+	                 if (idx > -1) {
+	                   $scope.selection.splice(idx, 1);
+	                 }
+	             
+	                 // is newly selected
+	                 else {
+	                   $scope.selection.push(accs);
+	                 }
+	            console.log($scope.selection);
+	               };
 	
 	$scope.getDevInfoPage = function()
 	{
@@ -25,39 +53,25 @@ var cmpe226= angular.module('app',[]);
 		window.location.assign("/getDTCInfoPage");
 	}
 	
-	 $scope.next = function() {
+	 $scope.addMaterialInfo = function() {
 		 var rcText = $scope.rcText;
-		 var htText = $scope.htText;
 		 var ltText = $scope.ltText;
-		 var option1 = $scope.log.Option 1;
-		 var customLayout = $scope.customLayout;
-		 var customNumber = $scope.customNumber;
-		 var htLength = $scope.htLength;
-		 var ltLength = $scope.ltLength;
-		 var htDeadends = $scope.htDeadends;
-		 var ltDeadends = $scope.ltDeadends;
+		 var htText = $scope.htText;
 		 
-		 
-		 console.log(layout);
-		 console.log(number);
-		 console.log(newLayout);
-		 console.log(newNumber);
-		 console.log(customLayout);
-		 console.log(customNumber);
-		 console.log(htLength);
-		 console.log(ltLength);
-		 console.log(htDeadends);
-		 console.log(ltDeadends);
-		
-		 console.log("********************");
-		 
+		 console.log(rcText);
+		 console.log(ltText);
+		 console.log(htText);
+		 console.log("********");
 		 window.location.assign("/getDTCInfoPage");
-		 
 	 }
 	 
 	 $scope.back = function() {
 		 window.location.assign("/getLayoutInfoPage"); 
 	 }
 	 
- });
- 
+	 $scope.next = function() {
+		 window.location.assign("/getDTCInfoPage"); 
+	 }
+	 
+
+   });

@@ -1,5 +1,6 @@
 var cmpe226= angular.module('app',[]);
  cmpe226.controller('devInfoCtrl', function($scope, $http, $location) {
+		 
 	$scope.getDevInfoPage = function()
 	{
 		console.log("inside dashbpard controller");
@@ -24,6 +25,12 @@ var cmpe226= angular.module('app',[]);
 		window.location.assign("/getDTCInfoPage");
 	}
 	
+	$scope.logout = function()
+	{
+		
+		window.location.assign("/logout");
+	}
+	
 	
 	 $scope.addDevInfo = function() {
 		
@@ -40,14 +47,14 @@ var cmpe226= angular.module('app',[]);
 				method : "POST",
 				url : '/storeDevInfo',
 				data : {
-					"customerName" : $scope.customerName,
-					"surveyNumber" : $scope.surveyNumber,
-					"address" : $scope.address,
-					"district" : $scope.district,
-					"cityTown" : $scope.cityTown,
-					"village" : $scope.village,
-					"section" : $scope.section,
-					"csd" : $scope.csd
+					"customerName" : customerName,
+					"surveyNumber" : surveyNumber,
+					"address" : address,
+					"district" : district,
+					"cityTown" : cityTown,
+					"village" : village,
+					"section" : section,
+					"csd" : csd
 				}
 			}).success(function(data) {
 				//checking the response data for statusCode
