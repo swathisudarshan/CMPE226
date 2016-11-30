@@ -5,20 +5,29 @@
 
 var express = require('express')
   , routes = require('./routes')
+  , user = require('./routes/user')
   ,home = require('./routes/home')
+  ,sensor= require('./routes/sensor')
   , http = require('http')
-  , path = require('path')
-  , session = require('client-sessions');
+  , path = require('path');
+
+var mongoSessionConnectURL = "mongodb://localhost:27017/sessions";
+var expressSession = require("express-session");
+var mongoStore = require("connect-mongo")(expressSession);  //passing parameter to expressSession module
 
 var app = express();
 
-//setting sessions
-app.use(session({   
-	cookieName: 'session',    
-	secret: 'cmpe226',    
+//mongo session
+app.use(expressSession({
+	secret: 'CMPE281_session',
+	resave: true,  //don't save session if unmodified
+	saveUninitialized: false,	// don't create session until something stored
 	duration: 30 * 60 * 1000,    
-	activeDuration: 5 * 60 * 1000,  }));
-
+	activeDuration: 5 * 60 * 1000,
+	store: new mongoStore({
+		url: mongoSessionConnectURL
+	})
+}));
 
 // all environments
 app.set('port', process.env.PORT || 3000);
@@ -36,22 +45,45 @@ if ('development' == app.get('env')) {
   app.use(express.errorHandler());
 }
 
-//signup, login and frontpage 
+app.get('/users', user.list);
+
+//signup, login, frontpage and dashboard
 app.get('/', routes.index);
 app.get('/signup', home.signup);
 app.get('/login', home.login);
-//app.get('/logout', home.logout);
+app.get('/home', home.index);
+app.get('/adminDashboard',home.adminDashboard);
+app.get('/logout', home.logout);
+app.post('/addUser',home.addUser);
+app.post('/userLogin',home.userLogin);
 
-
-//getting Info Pages
+//Info Pages
 app.get('/getDevInfoPage',home.getDevInfoPage);
 app.get('/getLayoutInfoPage',home.getLayoutInfoPage);
 app.get('/getMaterialInfoPage',home.getMaterialInfoPage);
 app.get('/getDTCInfoPage',home.getDTCInfoPage);
+app.get('/getAdminDashInfoPage',home.getAdminDashInfoPage);
+app.get('/getHighchartsAInfoPage',home.getHighchartsAInfoPage);
+app.get('/getHighchartsBInfoPage',home.getHighchartsBInfoPage);
 
-//post APIs
-app.post('/storeDevInfo',home.storeDevInfo);
-app.post('/storeLayoutInfo',home.storeLayoutInfo);
+//User dashboard APIs
+app.get('/requestData',home.requestData);
+app.post('/getDropDownDetails', home.getData);
+app.post('/getData', user.getData);
+
+
+//Billing APIs
+
+app.post('/resetBill', home.resetBill);
+app.post('/getBillList', home.getBillList);
+
+//manage sensor and Admin Dashboard APIs
+app.post('/addNewSensor',sensor.addNewSensor);
+app.post('/getSensorDetails',sensor.getSensorDetails);
+app.post('/deleteSensor',sensor.deleteSensor);
+app.post('/deactivateSensor',sensor.deactivateSensor);
+app.post('/activateSensor',sensor.activateSensor);
+app.post('/getUserlist',user.getUserlist);
 
 http.createServer(app).listen(app.get('port'), function(){
   console.log('Express server listening on port ' + app.get('port'));
