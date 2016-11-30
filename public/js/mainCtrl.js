@@ -50,6 +50,9 @@ var sensorApp= angular.module('sensorApp',[]);
     	console.log("inside mainpage ctrl -- login of a user");
     	console.log("phone number is: "+$scope.userid);
     	console.log("password is: "+$scope.pswrd);
+    	console.log("type of login:"+$scope.login);
+    	if($scope.login == "userLogin")
+    		{
     	$http({
     		method : "POST",
     		url : "https://weconnect-imnikhil.c9users.io/api/user/login",
@@ -59,9 +62,9 @@ var sensorApp= angular.module('sensorApp',[]);
     			}
     	}).success(function (res) {
     		console.log("The return value: "+JSON.stringify(res));
-    		if(res.Success == 200)
+    		if(res.Status == 200)
     		{ 
-    			console.log("successfully loggedin");
+    			console.log("successfully loggedin as user");
 	            window.location.assign("/getDevInfoPage");	
     		}
     		else
@@ -72,6 +75,32 @@ var sensorApp= angular.module('sensorApp',[]);
     		}).error(function (error){
     		console.log("error while login: " +error);
     	});
+    		}
+    	else if($scope.login == "adminLogin")
+    		{
+    		$http({
+        		method : "POST",
+        		url : "https://weconnect-imnikhil.c9users.io/api/admin/login",
+        		data : {
+        			"userid" : $scope.userid,
+        			"pswrd" : $scope.pswrd
+        			}
+        	}).success(function (res) {
+        		console.log("The return value: "+JSON.stringify(res));
+        		if(res.Status == 200)
+        		{ 
+        			console.log("successfully loggedin as admin");
+    	            	
+        		}
+        		else
+        		{
+        			console.log("Auhentication failure after success");
+        		}
+        		
+        		}).error(function (error){
+        		console.log("error while login: " +error);
+        	});
+    		}
     };
        
 });

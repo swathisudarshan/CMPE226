@@ -47,6 +47,7 @@ app.get('/getLayoutInfoPage',home.getLayoutInfoPage);
 app.get('/getMaterialInfoPage',home.getMaterialInfoPage);
 app.get('/getDTCInfoPage',home.getDTCInfoPage);
 app.get('/logout',home.logout);
+app.get('/closeReport',home.closeReport);
 
 //post APIs
 //app.post('/addUser', user.addUser);

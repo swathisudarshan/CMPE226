@@ -17,5 +17,9 @@ cmpe226.controller('reportCtrl', function($scope, $http, $location) {
 		});
 	}
 	
+	$scope.close = function(){
+		window.location.assign("/closeReport");
+	}
+	
 	
 });

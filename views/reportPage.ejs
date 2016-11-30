@@ -136,7 +136,7 @@
   			<div class="col-lg-5 col-xs-5">
   			</div>
   			<div class="col-lg-4 col-xs-4">
-  				<h1> DEVELOPER INFO </h1>
+  				<h1> REPORT </h1>
   				<br>
   			</div>
   			<div class="col-lg-4 col-xs-4">
@@ -151,12 +151,11 @@
   				<label>Customer Name</label> 							
   			</div>
   			<div class="col-lg-4 col-xs-4">
-  				<input class="form-control" type="text" id="customerName" name="customerName" placeholder="Customer Name" ng-model="customerName" />												
+  				<input class="form-control" type="text" id="customerName" name="customerName" ng-model="reportDetails.customerName" disabled/>												
   			</div>
   			</section>
   			</div>		
-  		 
-  		    <hr/>
+
   			<div class="row">
   			<div class="col-lg-3 col-xs-3">
   		  </div>
@@ -164,12 +163,10 @@
   				<label> Survey No </label> 									
   			</div>
   			<div class="col-lg-4 col-xs-4">
-  				<input class="form-control" type="text" id="surveyNumber" name="surveyNumber" placeholder="Survey Number" ng-model="surveyNumber" />
+  				<input class="form-control" type="text" id="surveyNumber" name="surveyNumber" ng-model="reportDetails.surveyNumber" disabled/>
   			</div>	
   			</div>
-  		
-  			 <hr/>
-  			 
+  		  			 
   			 <div class="row">
   			 	<div class="col-lg-3 col-xs-3">
   			 	</div>
@@ -177,11 +174,10 @@
   			 		<label>Address</label> 									
   			 	</div>
   				<div class="col-lg-4 col-xs-4">
-  				<textarea class="form-control" type="text" id="address" name="address" placeholder="Enter the address" ng-model="address"> </textarea>
+  				<textarea class="form-control" type="text" id="address" name="address" ng-model="reportDetails.address" disabled> </textarea>
   				</div>
   		</div>
-  		<hr/>
-  		
+
   		 <div class="row">
   		 	<div class="col-lg-3 col-xs-3">
   		 	</div>
@@ -189,70 +185,57 @@
   		 		<label>District</label> 									
   		 	</div>
   			<div class="col-lg-4 col-xs-4">
-  				<input class="form-control" type="text" id="district" name="district" placeholder="Enter the District" ng-model="district"/>
+  				<input class="form-control" type="text" id="district" name="district" ng-model="reportDetails.district" disabled/>
   			</div>
   	</div>
-  	<hr/>
 
   	<div class="row">
   		<div class="col-lg-3 col-xs-3">
   		</div>
   		<div class="col-lg-2 col-xs-2">
-  			<label>City / Town</label> 									
+  			<label>Section</label> 									
   		</div>
   	<div class="col-lg-4 col-xs-4">
-  		<input class="form-control" type="text" id="cityTown" name="cityTown" placeholder="Enter the City" ng-model="cityTown"/>
+  		<input class="form-control" type="text" id="section" name="section" ng-model="reportDetails.section" disabled/>
   	</div>
   	</div>
-  	<hr/>
 
   	<div class="row">
   	<div class="col-lg-3 col-xs-3">
   		  </div>
   			<div class="col-lg-2 col-xs-2">
-  				<label>Village</label> 									
+  				<label>Layout</label> 									
   			</div>
   			<div class="col-lg-4 col-xs-4">
-  			<input class="form-control" type="text" id="village" name="village" placeholder="Enter the Village" ng-model="village" />
+  			<input class="form-control" type="text" id="layout" name="layout" placeholder="Enter the Village" ng-model="reportDetails.layout" disabled />
   		</div>
   			
   		</div>
-  	<hr/>
 
   	<div class="row">
   	<div class="col-lg-3 col-xs-3">
   		  </div>
   			<div class="col-lg-2 col-xs-2">
-  				<label>Section</label> 									
+  				<label>HT Length</label> 									
   			</div>
   			<div class="col-lg-4 col-xs-4">
-  				<select class="form-control" id="section" ng-model="section">
-  					<option id="1"> option 1 </option>
-  					<option id="2"> option 2 </option>
-  					<option id="3"> option 3 </option>
-  					<option id="4"> option 4 </option>
-  				</select>
-  			</div>						
+  			<input class="form-control" type="text" id="htLength" name="htLength" ng-model="reportDetails.htLength" disabled />
   		</div>
-  	<hr/>
-
-  	<div class="row">
+  			
+  		</div>
+  	
+  		<div class="row">
   	<div class="col-lg-3 col-xs-3">
   		  </div>
   			<div class="col-lg-2 col-xs-2">
-  				<label>CSD</label> 									
+  				<label>LT Length</label> 									
   			</div>
   			<div class="col-lg-4 col-xs-4">
-  				<select class="form-control" id="csd" ng-model="csd">
-  					<option id="1"> option 1 </option>
-  					<option id="2"> option 2 </option>
-  					<option id="3"> option 3 </option>
-  					<option id="4"> option 4 </option>
-  				</select>
-  			</div>						
+  			<input class="form-control" type="text" id="ltLength" name="ltLength" ng-model="reportDetails.ltLength" disabled />
   		</div>
-  	<br>
-  	<br>
+  			
+  		</div>
+  	
   	
   	<div class="row">
 
@@ -260,13 +243,12 @@
   			</div>
   			
   			<div class="col-lg-4 col-xs-4">
-  				<input type="submit" class="btn btn-primary" value="NEXT" ng-click="addDevInfo()" style="width:50%"></input>
+  				<input type="submit" class="btn btn-primary" value="CLOSE" ng-click="close()" style="width:50%"></input>
   			</div>
   			<div class="col-lg-4 col-xs-4">
   			</div>
   		</div>
   		</form>
-  	<hr/>
   		
   			 
   	</section>		 
