@@ -170,11 +170,11 @@ function storeDtcInfo(req,res){
 	json_responses.newNumber = req.session.newNumber;
 	json_responses.customLayout = req.session.customLayout;
 	json_responses.customNumber = req.session.customNumber;
-	json_responses.htLength = req.session.customerName;
-	json_responses.ltLength = req.session.customerName;
-	json_responses.htDeadends = req.session.customerName;
-	json_responses.ltDeadends = req.session.customerName;
-	json_responses.dtc = req.session.customerName;
+	json_responses.htLength = req.session.htLength;
+	json_responses.ltLength = req.session.ltLength;
+	json_responses.htDeadends = req.session.htDeadends;
+	json_responses.ltDeadends = req.session.ltDeadends;
+	json_responses.dtc = req.session.dtc;
 	json_responses.status = 200;
 	
 	res.send(json_responses);	
@@ -186,6 +186,12 @@ function logout(req,res) {
 	res.render("index");
 }
 
+function closeReport(req,res) {
+	req.session.destroy();
+	res.render("devInfo");
+}
+
+exports.closeReport = closeReport;
 exports.displayReport = displayReport;
 exports.storeDtcInfo = storeDtcInfo;
 exports.getDevInfoPage = getDevInfoPage;

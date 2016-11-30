@@ -73,5 +73,11 @@ var cmpe226= angular.module('app',[]);
 		 window.location.assign("/getDTCInfoPage"); 
 	 }
 	 
+	 $scope.logout = function()
+		{
+			
+			window.location.assign("/logout");
+		}
+		
 
    });
