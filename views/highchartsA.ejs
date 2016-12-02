@@ -1,0 +1,101 @@
+<html>
+	<head>
+	<title> Monthly stats </title>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+
+		<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
+		<style type="text/css">
+${demo.css}
+		</style>
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+    	<link rel="stylesheet" type="text/css" href="http://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-glyphicons.css" />
+    	<link rel='stylesheet' href='/stylesheets/style.css' />
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.5/angular.js"></script>
+  		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.js"></script>
+   		<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+   		
+   		<!--CUSTOM ANGULAR-->
+   		<script type="text/javascript"src="/js/highchartsBCtrl.js"></script>
+   		
+   		<script src="http://code.highcharts.com/highcharts.src.js"></script>
+   	    <script src="https://rawgithub.com/pablojim/highcharts-ng/master/src/highcharts-ng.js"></script>
+   	 
+		<link rel="stylesheet" type="text/css" href="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.css" />
+		<link rel="stylesheet" type="text/css" href="http://cdnjs.cloudflare.com/ajax/libs/leaflet.markercluster/0.4.0/MarkerCluster.css" />
+		<link rel="stylesheet" type="text/css" href="http://cdnjs.cloudflare.com/ajax/libs/leaflet.markercluster/0.4.0/MarkerCluster.Default.css" />
+		<script type='text/javascript' src='http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.js?2'></script>
+		<script type='text/javascript' src='http://cdnjs.cloudflare.com/ajax/libs/leaflet.markercluster/0.4.0/leaflet.markercluster.js'></script>
+		
+    <!-- Tell the browser to be responsive to screen width -->
+    <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+    <!-- Bootstrap 3.3.6 
+    <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
+    -->
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.5.0/css/font-awesome.min.css">
+    <!-- Ionicons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ionicons/2.0.1/css/ionicons.min.css">
+    <link rel="stylesheet" href="dist/css/AdminLTE.min.css">
+    <link rel="stylesheet" href="dist/css/skins/_all-skins.min.css">
+    <!-- iCheck -->
+    <link rel="stylesheet" href="plugins/iCheck/flat/blue.css">
+   
+    <!-- jvectormap -->
+    <link rel="stylesheet" href="plugins/jvectormap/jquery-jvectormap-1.2.2.css">
+    <!-- Date Picker -->
+    <link rel="stylesheet" href="plugins/datepicker/datepicker3.css">
+    <!-- Daterange picker -->
+    <link rel="stylesheet" href="plugins/daterangepicker/daterangepicker-bs3.css">
+    <!-- bootstrap wysihtml5 - text editor -->
+    <link rel="stylesheet" href="plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.min.css">
+    
+		<script type="text/javascript">
+
+                
+		$(function () {
+		    Highcharts.chart('container', {
+
+		        title: {
+		            text: 'Number of Users per month'
+		        },
+
+		        xAxis: {
+		            categories: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec']
+		        },
+
+		        yAxis: {
+		            floor: 0,
+		            ceiling: 100,
+		            title: {
+		                text: 'Users'
+		            }
+		        },
+
+		        series: [{
+		            data: [12, 15, 9, 5, 29, 48, 37, 29, 24, 75, 25, 54]
+		        }]
+		    });
+		});
+            // 
+		</script>
+	</head>
+	<body>
+<script src="https://code.highcharts.com/highcharts.js"></script>
+<script src="https://code.highcharts.com/modules/exporting.js"></script>
+
+<div id="container" style="min-width: 310px; height: 400px; margin: 0 auto"></div>
+<div class="row">
+
+	<div class="col-lg-5 col-xs-5">
+	</div>
+	
+	<div class="col-lg-4 col-xs-4">
+		<a href="getAdminDashInfoPage">
+		<input type="submit" class="btn btn-primary" value="BACK" style="width:50%"></input></a>
+	</div>
+	<div class="col-lg-4 col-xs-4">
+	</div>
+</div>
+	</body>
+</html>
+

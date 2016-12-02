@@ -35,6 +35,18 @@ function displayReport(req,res) {
 	res.render("reportPage");
 }
 
+function getAdminDashInfoPage(req,res){
+	res.render("adminDash");
+}
+
+function getHighchartsAInfoPage(req,res){
+	res.render("highchartsA");
+}
+
+function getHighchartsBInfoPage(req,res){
+	res.render("highchartsB");
+}
+
 function storeDevInfo(req,res) {
 	var customerName, surveyNumber, address, district, cityTown, village, section, csd;
 	customerName = req.param("customerName");
@@ -191,6 +203,9 @@ function closeReport(req,res) {
 	res.render("devInfo");
 }
 
+exports.getAdminDashInfoPage = getAdminDashInfoPage;
+exports.getHighchartsAInfoPage = getHighchartsAInfoPage;
+exports.getHighchartsBInfoPage = getHighchartsBInfoPage;
 exports.closeReport = closeReport;
 exports.displayReport = displayReport;
 exports.storeDtcInfo = storeDtcInfo;

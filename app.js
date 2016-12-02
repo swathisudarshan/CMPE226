@@ -49,6 +49,10 @@ app.get('/getDTCInfoPage',home.getDTCInfoPage);
 app.get('/logout',home.logout);
 app.get('/closeReport',home.closeReport);
 
+app.get('/getAdminDashInfoPage',home.getAdminDashInfoPage);
+app.get('/getHighchartsAInfoPage',home.getHighchartsAInfoPage);
+app.get('/getHighchartsBInfoPage',home.getHighchartsBInfoPage);
+
 //post APIs
 //app.post('/addUser', user.addUser);
 app.post('/storeDevInfo',home.storeDevInfo);

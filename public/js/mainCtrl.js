@@ -90,7 +90,7 @@ var sensorApp= angular.module('sensorApp',[]);
         		if(res.Status == 200)
         		{ 
         			console.log("successfully loggedin as admin");
-    	            	
+        			window.location.assign("/getAdminDashInfoPage");	
         		}
         		else
         		{

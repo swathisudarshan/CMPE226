@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html ng-app="app">
 	<head>    	
+	<title> Material info </title>
     	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
     	<link rel="stylesheet" type="text/css" href="http://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-glyphicons.css" />
     	<link rel='stylesheet' href='/stylesheets/style.css' />
@@ -201,19 +202,7 @@
       
  
  
-    <div class="panel panel-default">
-      <div class="panel-heading">Accessories</div>
-      <div class="panel-body">
-      
-      <div class="col-lg-4 col-xs-4">
-      <div ng-repeat="accs in acc"><input type="checkbox" value="{{accs.name}}" ng-checked="selection.indexOf(accs.name) > -1" ng-click="toggleSelection(accs.name)"/><label for="{{accs.name}}"></label>{{accs.name}}
-      </div>
-       </div>
-
-      
-      </div>
-    </div>
-    </div>
+   
     </div>
   		<form>
 

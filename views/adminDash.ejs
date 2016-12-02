@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html ng-app="app">
 	<head>    	
-	<title> DTC Info </title>
+	<title> Admin Dashboard </title>
     	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
     	<link rel="stylesheet" type="text/css" href="http://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-glyphicons.css" />
     	<link rel='stylesheet' href='/stylesheets/style.css' />
@@ -10,7 +10,7 @@
    		<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
    		
    		<!--CUSTOM ANGULAR-->
-   		<script type="text/javascript"src="/js/dtcInfoCtrl.js"></script>
+   		<script type="text/javascript"src="/js/adminDashCtrl.js"></script>
    		
    		<script src="http://code.highcharts.com/highcharts.src.js"></script>
    	    <script src="https://rawgithub.com/pablojim/highcharts-ng/master/src/highcharts-ng.js"></script>
@@ -45,13 +45,13 @@
     <link rel="stylesheet" href="plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.min.css">
     
   </head>
-  <body class="hold-transition skin-blue sidebar-mini" ng-controller="dtcInfoCtrl">
+  <body class="hold-transition skin-blue sidebar-mini" ng-controller="adminDashCtrl">
   <div class="wrapper">
 
     <header class="main-header">
       <!-- Logo -->
       <a href="/userDashboard" class="logo" >
-        <span class="logo-lg"><b>User Dashboard</b></span>
+        <span class="logo-lg"><b>Admin Dashboard</b></span>
       </a>
       <nav class="navbar navbar-static-top" >
       <!-- Sidebar toggle button-->
@@ -75,48 +75,41 @@
           <div class="pull-left info">
 
           
-          <h4> Swathi N S  </h4>
+          <h4> Royal Challengers  </h4>
            </div>
         </div>
         <ul class = "sidebar-menu">
 	        <!-- /.search form -->
 	        <!-- sidebar menu: : style can be found in sidebar.less -->
 	 		
-	        <li>
+	        <li class="treeview">
 	           <a href="" ng-click="getDevInfoPage()">
 	            <i class="fa fa-male" aria-hidden="true"></i>
-	            <span>Developer Info</span>
+	            <span>Users List</span>
 	           </a>
 	        </li>
 	        
-	        <li>
-	           <a href="" ng-click="getLayoutInfoPage()">
+	        <li class="treeview">
+	           <a href="" ng-click="getHighchartsAInfoPage()">
 	            <i class="fa fa-male" aria-hidden="true"></i>
-	            <span>Layout Info</span>
+	            <span>Monthly Users</span>
 	           </a>
 	        </li>
 	      
-	        <li>
-	           <a href="" ng-click="getMaterialInfoPage()">
+	        <li class="treeview">
+	           <a href="" ng-click="getHighchartsBInfoPage()">
 	            <i class="fa fa-male" aria-hidden="true"></i>
-	            <span>Material Info</span>
+	            <span>Daily Users</span>
 	           </a>
 	        </li>
 	        
-	        <li class="active">
-	           <a href="" ng-click="getDTCInfoPage()">
-	            <i class="fa fa-male" aria-hidden="true"></i>
-	            <span>DTC Info</span>
-	           </a>
-	        </li>
-	        
-	        <li>
+	        <li class="treeview">
 	           <a href="" ng-click="logout()">
 	            <i class="fa fa-male" aria-hidden="true"></i>
 	            <span>Logout</span>
 	           </a>
 	        </li>
-	        
+	       	        
         </ul>
       </section>
     </aside>
@@ -128,6 +121,8 @@
       <!-- Main content -->
       <div>
 		
+  	
+
   	<div class="hold-transition skin-blue sidebar-mini">
   	  <div>
   	    <section class="content">
@@ -135,64 +130,103 @@
   			<div class="col-lg-5 col-xs-5">
   			</div>
   			<div class="col-lg-4 col-xs-4">
-  				<h1> DTC INFO </h1>
+  				<h1> ADMIN DASHBOARD </h1>
   				<br>
   			</div>
   			<div class="col-lg-4 col-xs-4">
   			</div>
   		</div>
-  		
-  		<div class="row ">
-  		<div class="col-lg-2 col-xs-2">
-  		</div>
-  			 <div class="col-lg-8 col-xs-8">
-  			 
-  		<div class="panel-group">
-    <div class="panel panel-default">
-      <div class="panel-heading">Number of DTC</div>
-      <div class="panel-body">
-     <div class="row">
-     <div class="col-lg-2 col-xs-2">
-	  </div>
-	  		<div class="col-lg-3 col-xs-3">
-			<label>Transformer information</label> 							
-		</div>
-  		  		<div class="col-lg-4 col-xs-4">
-  		  		
-  		  		<input class="form-control" type="text" id="dtc" name="dtc" placeholder="Transformer information" ng-model="dtc" value="">
-  		  		
-  		  		</div>
-     </div>
-  		  	<br>
-     
-	  </div>
-</div>
-    </div>
-    </div>
-    </div>
   		<form>
-
-  	
-  	<div class="row">
-  	<div class="col-lg-5 col-xs-5">
-	  </div>
-			<div class="col-lg-2 col-xs-2">
-			<input type="submit" class="btn btn-primary" value="SUBMIT" ng-click="submit()" style="width:100%"></input>
-			</div>
-  			
-  		</div>
+  	      <div class="row">
+  		  <table class="table">
+    <thead>
+      <tr>
+        <th>Firstname</th>
+        <th>Lastname</th>
+        <th>Email</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Donna</td>
+        <td>Stanley</td>
+        <td>dstanley@twitter.com</td>
+      </tr>      
+      <tr class="success">
+        <td>Tina</td>
+        <td>Price</td>
+        <td>tprice1@wikispace.com</td>
+      </tr>
+      <tr class="danger">
+        <td>Catherine</td>
+        <td>Wagner</td>
+        <td>cwagner2@discovery.com</td>
+      </tr>
+      <tr class="info">
+        <td>Lillian</td>
+        <td>Diaz</td>
+        <td>ldiaz@example.com</td>
+      </tr>
+      <tr class="warning">
+        <td>Michelle</td>
+        <td>Fuller</td>
+        <td>mfuller@gmail.com</td>
+      </tr>
+      <tr class="active">
+        <td>Donald</td>
+        <td>Watson</td>
+        <td>dwatson5@google.com</td>
+      </tr>
+      <tr class="info">
+      <td>Eric</td>
+      <td>George</td>
+      <td>egeorge@gmail.com</td>
+    </tr>
+    <tr class="success">
+    <td>Howard</td>
+    <td>Hawkins</td>
+    <td>hhawkins@yahoo.com</td>
+  </tr>
+  <tr class="danger">
+  <td>Donna</td>
+  <td>Dixon</td>
+  <td>ddixon5@techcrunch.com</td>
+</tr>
+<tr class="info">
+<td>Thomas</td>
+<td>Cooper</td>
+<td>tcooper@twitter.com</td>
+</tr>
+<tr class="success">
+<td>Norma</td>
+<td>Lopez</td>
+<td>nlopez7@weibo.com</td>
+</tr>
+<tr class="danger">
+<td>Justin</td>
+<td>Ward</td>
+<td>jward@gmail.com</td>
+</tr>
+    </tbody>
+		  </table>
+  			</div>		
+  		 
+  		    <hr/>
+  	<br>
   		</form>
   	<hr/>
+  		
+  			 
   	</section>		 
   		</div>
   	</div>
   	</div>  
-  		  <div>
-  		 </div>
+  		  <div>   
+  		 </div> 		       
   		    </div>
   		        </div>
-  		    </div>
-</div>
+  		      
+  		    
     
     <script src="plugins/jQuery/jQuery-2.2.0.min.js"></script>
     <!-- jQuery UI 1.11.4 -->
